@@ -105,5 +105,6 @@ return {
     -- setup must be called before loading
     vim.cmd('colorscheme github_dark_dimmed')
     vim.api.nvim_set_hl(0, "@constructor", { link = "Type" })
+    vim.api.nvim_set_hl(0, "@type.builtin", { link = "keyword" })
   end,
 }
