@@ -45,7 +45,7 @@ opt.showmode = false
 opt.cmdheight = 0
 opt.showcmd = false
 opt.ruler = false
-opt.winblend = 0
+-- opt.winblend = 0
 opt.completeopt = { "menu", "menuone", "noselect" }
 -- opt.wildoptions = 'pum'
 -- opt.pumblend = 5
@@ -60,7 +60,7 @@ opt.colorcolumn = "80"
 -- for incline
 opt.laststatus = 3
 
-
+-- Cursor blink
 vim.opt.guicursor = {
   "n-v-c:block",                                  -- Normal, visual, command-line: block cursor
   "i-ci-ve:ver25",                                -- Insert, command-line insert, visual-exclude: vertical bar cursor with 25% width
