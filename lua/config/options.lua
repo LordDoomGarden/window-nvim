@@ -33,6 +33,10 @@ opt.backup = false
 -- opt.autoread = true
 -- vim.bo.autoread = true
 
+-- backspace
+opt.backspace = "indent,eol,start"
+
+-- split
 opt.splitbelow = true
 opt.splitright = true
 
