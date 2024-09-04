@@ -69,15 +69,16 @@ return {
           PmenuSel           = { fg = "#48AEF5", bg = "#0d3440" }, -- Popup menu: selected item.
           PmenuThumb         = { bg = "#0d3440" },                 -- Popup menu: Thumb of the scrollbar.
           Visual             = { bg = '#1A6497', fg = '#EEE8D5' }, -- Visual mode selection
-          Search             = { fg = "#fd5e3a", bg = "NONE" },
-          IncSearch          = { bg = "#fd5e3a", fg = '#001419' }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
+          Search             = { fg = "#00dfff", bg = "NONE" },
+          IncSearch          = { bg = "#00dfff", fg = '#001419' }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
           TabLineSel         = { fg = "#92c4de", bg = "#48AEF5" }, -- tab pages line, active tab page label
           LineNr             = { fg = "#3c6378" },                 -- Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
           CursorLine         = { bg = "#1d323d" },
           CursorLineNr       = { fg = "#48AEF5", bg = "#00212B" }, -- Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
 
           TelescopeSelection = { fg = "#48AEF5", bg = "#0d3440" },
-          TelescopeMatching  = { fg = "#fd5e3a" },
+          TelescopeMatching  = { fg = "#D75F5F" },
+          -- TelescopeMatching  = { fg = "#fd5e3a" },
           TelescopeBorder    = { fg = '#3483ba' },
           -- TelescopePromtNormal = {},
 
@@ -98,6 +99,14 @@ return {
           -- NotifyERRORBorder  = { fg = "#fd5e3a" },
           -- NotifyERRORIcon    = { fg = "#fd5e3a" },
           -- NotifyERRORTitle   = { fg = "#fd5e3a" },
+
+          HopUnmatched       = { fg = "#3c6378" },
+          -- HopNextKey         = { fg = "#ff007c" }, -- default
+          -- HopNextKey1        = { fg = "#00dfff" }, -- default
+          HopNextKey2        = { fg = "#34abd9" },
+          -- HopNextKey2        = { fg = "#2b8db3" }, -- default
+
+
         }
       },
     })
