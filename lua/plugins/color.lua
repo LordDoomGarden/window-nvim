@@ -87,9 +87,9 @@ return {
           NoiceMini          = { fg = "#48AEF5", bg = "#0d3440" },
           -- NoiceMini          = { fg = "#48AEF5", bg = "#001419" },
 
-          NotifyINFOBorder   = { fg = "#66def9" },
-          NotifyINFOIcon     = { fg = "#66def9" },
-          NotifyINFOTitle    = { fg = "#66def9" },
+          NotifyINFOBorder   = { fg = "#48AEF5" },
+          NotifyINFOIcon     = { fg = "#48AEF5" },
+          NotifyINFOTitle    = { fg = "#48AEF5" },
 
           -- NotifyWARNBorder   = { fg = "#f69d50" },
           -- NotifyWARNIcon     = { fg = "#f69d50" },
