@@ -10,7 +10,7 @@ local M = {
     { "<leader>fp", "<CMD>Telescope find_files cwd=~/AppData/Local/nvim/lua/plugins<CR>", desc = "Plugins config" },
     { "<leader>fg", "<CMD>Telescope live_grep<CR>",                                       desc = "Find Text" },
     { "<leader>fe", "<CMD>Telescope file_browser<CR>",                                    desc = "File Browser" },
-    { "<leader>fb", "<CMD>Telescope buffers<CR>",                                         desc = "List open buffer" },
+    { "<leader>b",  "<CMD>Telescope buffers<CR>",                                         desc = "List open buffer" },
     { "<leader>fd", "<CMD>Telescope diagnostics<CR>",                                     desc = "List Dianostics" },
     { "<leader>ft", "<CMD>Telescope treesitter<CR>",                                      desc = "List Function names, variables, from Treesitter" },
     { "<leader>fk", "<CMD>Telescope keymaps<CR>",                                         desc = "List keymaps" },

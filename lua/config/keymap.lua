@@ -58,15 +58,13 @@ keymap.set("n", "{", "{zz")
 keymap.set("n", "}", "}zz")
 
 -- find/replace for the word under the cursor
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>ss", '*N', opts, { desc = "Search current word" })
 
 -- Terminal
 keymap.set("t", "<esc>", "<C-\\><C-n>", opts)
 -- keymap.set("n", "<C-t>", "<CMD>tabnew | term<CR>", opts)
 
--- Buffer
-keymap.set("n", "[b", "<CMD>bprevious<CR>", opts)
-keymap.set("n", "]b", "<CMD>bnext<CR>", opts)
 
 -- Move Firts&End line
 keymap.set("", "H", "^")
@@ -113,3 +111,71 @@ keymap.set("", "<Up>", "<nop>", opts)
 keymap.set("", "<Down>", "<nop>", opts)
 keymap.set("", "<Left>", "<nop>", opts)
 keymap.set("", "<Right>", "<nop>", opts)
+
+
+--  Buffer
+keymap.set("n", "[b", "<CMD>bp<CR>", opts, { desc = "move previous buffer" })
+keymap.set("n", "]b", "<CMD>bn<CR>", opts, { desc = "move next buffer" })
+keymap.set("n", "<leader><leader>", "<C-^>", { noremap = true }, { desc = "Switch to latest buffer" })
+keymap.set("n", "<leader>dd", "<CMD>confirm bd<CR>", opts, { desc = "Close buffer" })
+vim.api.nvim_set_keymap("n", "<leader>da", "", {
+  noremap = true,
+  silent = true,
+  callback = function()
+    local current_buf = vim.api.nvim_get_current_buf()
+    local all_buf = vim.api.nvim_list_bufs()
+    local closed_count = 0
+
+    local function is_regular_file(buf)
+      -- Check buftype
+      local buftype = vim.api.nvim_buf_get_option(buf, 'buftype')
+      if buftype ~= '' then
+        return false
+      end
+
+      -- Check filename
+      local bufname = vim.api.nvim_buf_get_name(buf)
+      if bufname == '' then
+        return false
+      end
+
+      -- Check if it's a normal file path
+      local stat = vim.loop.fs_stat(bufname)
+      if not stat or not stat.type == 'file' then
+        return false
+      end
+
+      return true
+    end
+
+    for _, buf in ipairs(all_buf) do
+      if buf ~= current_buf and vim.api.nvim_buf_is_valid(buf) and is_regular_file(buf) then
+        local modified = vim.api.nvim_buf_get_option(buf, 'modified')
+        if modified then
+          local buf_name = vim.api.nvim_buf_get_name(buf)
+          local choice = vim.fn.confirm('Save changes to "' .. buf_name .. '"?', "&Yes\n&No\n&Cancel", 1)
+          if choice == 1 then -- Yes
+            vim.api.nvim_buf_call(buf, function() vim.cmd('write') end)
+            vim.api.nvim_buf_delete(buf, {})
+            closed_count = closed_count + 1
+          elseif choice == 2 then -- No
+            vim.api.nvim_buf_delete(buf, { force = true })
+            closed_count = closed_count + 1
+          elseif choice == 3 then -- Cancel
+            return
+          end
+        else
+          vim.api.nvim_buf_delete(buf, {})
+          closed_count = closed_count + 1
+        end
+      end
+    end
+
+    -- Show notification
+    vim.defer_fn(function()
+      local msg = string.format("Closed buffer(s): %d", closed_count)
+      vim.notify(msg, vim.log.levels.INFO, { title = "Buffer Cleanup", timeout = 3000 })
+    end, 100)
+  end,
+  desc = "Close all regular file buffers except the current buffer"
+})
