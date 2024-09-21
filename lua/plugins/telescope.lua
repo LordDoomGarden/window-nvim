@@ -99,7 +99,7 @@ function M.config()
         initial_mode = "normal",
         layout_config = {
           prompt_position = "top",
-          width = 0.7,
+          width = { 0.5, max = 50 },
         },
         mappings = {
           i = {

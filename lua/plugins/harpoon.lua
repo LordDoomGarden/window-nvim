@@ -28,7 +28,7 @@ return {
         desc = "Harpoon | Menu",
       },
       {
-        "h]",
+        "]h",
         function()
           require("harpoon"):list():next()
         end,

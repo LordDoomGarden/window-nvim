@@ -7,7 +7,7 @@ return {
       ui = {
         theme = "round",
         border = "rounded",
-        winblend = 0,
+        foldericon = false,
       },
       lightbulb = {
         enable = false,
@@ -17,8 +17,8 @@ return {
       symbol_in_winbar = {
         enable = true,
         hide_keyword = true,
-        show_file = false,
-        folder_level = 0,
+        show_file = true,
+        folder_level = 1,
       },
       -- symbol_in_winbar = { enable = false },
       -- beacon = { enable = false },
