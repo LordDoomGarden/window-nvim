@@ -15,7 +15,9 @@ local M = {
     { "<leader>ft", "<CMD>Telescope treesitter<CR>",                                      desc = "List Function names, variables, from Treesitter" },
     { "<leader>fk", "<CMD>Telescope keymaps<CR>",                                         desc = "List keymaps" },
     { "<leader>fn", "<CMD>Telescope noice<CR>",                                           desc = "Help tags" },
-    { "<leader>fh", "<CMD>Telescope help_tags<CR>",                                       desc = "Help tags" },
+    { "<leader>fn", "<CMD>Telescope noice<CR>",                                           desc = "Help tags" },
+    { "<leader>fh", "<CMD>Telescope highlights<CR>",                                      desc = "Help tags" },
+    { "<leader>f?", "<CMD>Telescope help_tags<CR>",                                       desc = "Help tags" },
   },
 }
 

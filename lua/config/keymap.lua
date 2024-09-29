@@ -46,7 +46,8 @@ keymap.set("n", "<C-j>", "m`o<Esc>``")
 -- keymap.set("n", "<S-A-j>", "m`o<Esc>``")
 -- Delete line Up/Down current cursor
 keymap.set("n", "K", "kdd")
-keymap.set("n", "J", "mzJ`z")
+-- keymap.set("n", "J", "mzJ`z")
+keymap.set("n", "J", "mzjdd`z")
 
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
